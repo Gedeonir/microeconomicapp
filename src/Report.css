@@ -1,0 +1,244 @@
+/* ================================================================
+   REPORT PAGE STYLES
+   Add to your existing stylesheet
+   ================================================================ */
+
+/* ── Page layout ── */
+.rpt-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Control panel ── */
+.rpt-controls {
+  background: var(--surface2, #f9f9f8);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rpt-controls-header { display: flex; align-items: flex-start; justify-content: space-between; }
+.rpt-ctrl-title  { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
+.rpt-ctrl-sub    { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+.rpt-ctrl-section { display: flex; flex-direction: column; gap: 10px; }
+.rpt-ctrl-section-label {
+  font-size: 12px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--color-text-secondary);
+}
+
+/* ── Location grid ── */
+.rpt-loc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.rpt-loc-item   { display: flex; flex-direction: column; gap: 5px; }
+.rpt-loc-label  { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); }
+.rpt-loc-hint   { font-weight: 400; font-style: italic; }
+
+/* ── Selects ── */
+.rpt-select {
+  padding: 8px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--color-border-secondary);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-size: 13px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+  cursor: pointer;
+}
+.rpt-select:focus { outline: none; border-color: var(--blue, #1251C5); }
+.rpt-select--disabled { opacity: 0.45; cursor: not-allowed; }
+.rpt-select--year { max-width: 160px; }
+
+/* ── Indicator toggles ── */
+.rpt-ind-toggles { display: flex; flex-wrap: wrap; gap: 8px; }
+.rpt-ind-toggle {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border-secondary);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.rpt-ind-toggle:hover { border-color: var(--color-border-primary); color: var(--color-text-primary); }
+.rpt-ind-toggle.on { font-weight: 500; }
+
+/* ── Actions ── */
+.rpt-ctrl-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.rpt-btn-generate {
+  padding: 10px 24px;
+  background: var(--blue, #1251C5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity .15s;
+}
+.rpt-btn-generate:hover   { opacity: .88; }
+.rpt-btn-generate:disabled{ opacity: .5; cursor: not-allowed; }
+.rpt-btn-export {
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.rpt-btn-export:hover { background: var(--color-background-secondary); }
+.rpt-error {
+  padding: 10px 14px;
+  border-radius: 7px;
+  background: rgba(240,82,82,.1);
+  color: #e03131;
+  font-size: 13px;
+  border: 1px solid rgba(240,82,82,.25);
+}
+
+/* ── Report output ── */
+.rpt-output { display: flex; flex-direction: column; gap: 24px; }
+
+/* ── Report header ── */
+.rpt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #0A3D91 0%, #1251C5 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 24px 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.rpt-header-meta    { display: flex; align-items: center; gap: 14px; }
+.rpt-header-logo    {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,.18);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.rpt-header-org     { font-size: 13px; opacity: .8; margin-bottom: 3px; }
+.rpt-header-sub     { font-size: 20px; font-weight: 600; }
+.rpt-header-right   { display: flex; flex-direction: column; gap: 4px; text-align: right; }
+.rpt-header-location{ font-size: 15px; font-weight: 500; }
+.rpt-header-year    { font-size: 13px; opacity: .8; }
+.rpt-header-generated{ font-size: 12px; opacity: .65; }
+
+/* ── Summary KPI cards ── */
+.rpt-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.rpt-summary-card {
+  background: var(--color-background-secondary, #f9f9f8);
+  border: 1px solid var(--color-border-tertiary);
+  border-top: 3px solid #ccc;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rpt-summary-icon  { font-size: 20px; }
+.rpt-summary-value { font-size: 22px; font-weight: 600; color: var(--color-text-primary); }
+.rpt-summary-label { font-size: 12px; color: var(--color-text-secondary); }
+
+/* ── Indicator section ── */
+.rpt-section { display: flex; flex-direction: column; gap: 12px; }
+.rpt-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid #ccc;
+  padding-left: 12px;
+}
+.rpt-section-icon  { font-size: 18px; }
+.rpt-section-title { font-size: 16px; font-weight: 500; margin: 0; flex: 1; }
+.rpt-section-count {
+  font-size: 12px; color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: 20px; padding: 2px 10px;
+}
+.rpt-empty {
+  font-size: 13px; color: var(--color-text-secondary);
+  padding: 20px; text-align: center;
+  border: 1px dashed var(--color-border-tertiary);
+  border-radius: 8px;
+}
+
+/* ── Data table ── */
+.rpt-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--color-border-tertiary); }
+.rpt-table {
+  width: 100%; border-collapse: collapse; font-size: 13px;
+  background: var(--color-background-primary);
+}
+.rpt-table thead th {
+  background: var(--color-background-secondary, #f3f4f6);
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+.rpt-table tbody tr { border-bottom: 1px solid var(--color-border-tertiary); }
+.rpt-table tbody tr:last-child { border-bottom: none; }
+.rpt-table tbody tr:hover { background: var(--color-background-secondary, #f9f9f8); }
+.rpt-table td { padding: 8px 12px; color: var(--color-text-primary); }
+.rpt-td-year { font-weight: 500; color: var(--blue, #1251C5); white-space: nowrap; }
+.rpt-td-num  { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rpt-badge {
+  display: inline-block; padding: 1px 8px; border-radius: 4px;
+  font-size: 12px; font-weight: 500;
+  background: rgba(74,222,128,.15); color: #16a34a;
+  border: 1px solid rgba(74,222,128,.25);
+}
+
+/* ── Footer ── */
+.rpt-footer {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--color-text-secondary);
+  padding: 16px 0 8px;
+  border-top: 1px solid var(--color-border-tertiary);
+}
+
+/* ── Placeholder ── */
+.rpt-placeholder {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 10px; padding: 80px 24px;
+  text-align: center;
+}
+.rpt-placeholder-icon  { font-size: 48px; }
+.rpt-placeholder-title { font-size: 18px; font-weight: 500; margin: 0; }
+.rpt-placeholder-sub   { font-size: 14px; color: var(--color-text-secondary); margin: 0; max-width: 400px; }
+
+/* ── Print styles ── */
+@media print {
+  .no-print { display: none !important; }
+  .rpt-page { padding: 0; gap: 16px; max-width: 100%; }
+  .rpt-header { background: #0A3D91 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rpt-table-wrap { overflow: visible; }
+  .rpt-section { page-break-inside: avoid; }
+  .rpt-summary-card { border-top-width: 3px !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
